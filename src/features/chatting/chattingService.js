@@ -1,4 +1,5 @@
 import axios from "axios";
+import { BASE_URL } from "../../constants";
 
 const getConversation = async (token) => {
   const config = {
@@ -7,7 +8,7 @@ const getConversation = async (token) => {
     },
   };
 
-  const res = await axios.get("/api/conversation", config);
+  const res = await axios.get(BASE_URL + "/api/conversation", config);
 
   const dataArr = res?.data?.map((d) => ({ _id: d._id, members: d.members }));
 
@@ -21,7 +22,7 @@ const addConversation = async (data, token) => {
     },
   };
 
-  const res = await axios.post("/api/conversation", data, config);
+  const res = await axios.post(BASE_URL + "/api/conversation", data, config);
 
   return res.data;
 };
@@ -33,7 +34,10 @@ const deleteConversation = async (conversationId, token) => {
     },
   };
 
-  const res = await axios.delete("/api/conversation/" + conversationId, config);
+  const res = await axios.delete(
+    BASE_URL + "/api/conversation/" + conversationId,
+    config
+  );
 
   return res.data;
 };
@@ -45,7 +49,10 @@ const getMessages = async (conversationId, token) => {
     },
   };
 
-  const res = await axios.get("/api/message/" + conversationId, config);
+  const res = await axios.get(
+    BASE_URL + "/api/message/" + conversationId,
+    config
+  );
 
   return res.data;
 };
@@ -57,7 +64,7 @@ const sendMessages = async (data, token) => {
     },
   };
 
-  const res = await axios.post("/api/message", data, config);
+  const res = await axios.post(BASE_URL + "/api/message", data, config);
 
   return res.data;
 };

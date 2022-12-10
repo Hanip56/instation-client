@@ -1,6 +1,7 @@
 import axios from "axios";
+import { BASE_URL } from "../../constants";
 
-const API_URL = "/api/auth/";
+const API_URL = `${BASE_URL}/api/auth/`;
 
 const register = async (userData) => {
   const response = await axios.post(API_URL, userData);
