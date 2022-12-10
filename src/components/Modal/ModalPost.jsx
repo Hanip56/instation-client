@@ -23,6 +23,7 @@ import data from "@emoji-mart/data";
 import Picker from "@emoji-mart/react";
 import useOutsideAlerter from "../../utils/ClickOutside";
 import { get_time_diff } from "../../utils/getTimeDiff";
+import { BASE_URL } from "../../constants";
 
 const ModalPost = () => {
   const dispatch = useDispatch();
@@ -113,7 +114,7 @@ const ModalPost = () => {
       <Link to={`/${currentPost?.postedBy?.username}`}>
         <div className="w-8 h-8 rounded-full overflow-hidden">
           <img
-            src={currentPost?.postedBy?.profilePicture}
+            src={BASE_URL + "/" + currentPost?.postedBy?.profilePicture}
             alt={currentPost?.postedBy?.username}
           />
         </div>
@@ -165,7 +166,7 @@ const ModalPost = () => {
           <div className="basis-[75%] sm:basis-[65%] bg-black overflow-hidden">
             <div className="w-full h-full">
               <img
-                src={currentPost?.image}
+                src={BASE_URL + "/" + currentPost?.image}
                 alt={currentPost?.caption}
                 className="w-full h-full object-contain object-center"
               />
@@ -177,7 +178,7 @@ const ModalPost = () => {
               <div className="flex gap-x-4">
                 <div className="w-8 h-8 rounded-full overflow-hidden">
                   <img
-                    src={currentPost?.postedBy?.profilePicture}
+                    src={BASE_URL + "/" + currentPost?.postedBy?.profilePicture}
                     alt={currentPost?.postedBy?.username}
                   />
                 </div>
@@ -197,7 +198,7 @@ const ModalPost = () => {
                     <Link to={`/${comment?.user?.username}`}>
                       <div className="w-8 h-8 rounded-full overflow-hidden">
                         <img
-                          src={comment?.user?.profilePicture}
+                          src={BASE_URL + "/" + comment?.user?.profilePicture}
                           alt={comment?.user?.username}
                         />
                       </div>

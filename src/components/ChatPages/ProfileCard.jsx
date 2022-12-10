@@ -1,5 +1,6 @@
 import React from "react";
 import { useDispatch } from "react-redux";
+import { BASE_URL } from "../../constants";
 import { setCurrentConv } from "../../features/chatting/chattingSlice";
 
 const ProfileCard = ({ dataConv, currentConv, onlineUsers }) => {
@@ -27,7 +28,7 @@ const ProfileCard = ({ dataConv, currentConv, onlineUsers }) => {
             <div className="w-3 h-3 bg-green-400 rounded-full absolute"></div>
           )}
           <img
-            src={user.profilePicture}
+            src={BASE_URL + "/" + user.profilePicture}
             alt={user.username}
             className="object-cover object-center w-full h-full rounded-full"
           />

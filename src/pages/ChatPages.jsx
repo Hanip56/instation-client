@@ -16,6 +16,7 @@ import {
   setCurrentConv,
 } from "../features/chatting/chattingSlice";
 import ModalFindChat from "../components/Modal/ModalFindChat";
+import { BASE_URL } from "../constants";
 
 const ChatPages = () => {
   const dispatch = useDispatch();
@@ -161,7 +162,7 @@ const ChatPages = () => {
               <div className="text-left flex gap-x-2 items-center">
                 <div className="w-6 h-6 rounded-full mr-2">
                   <img
-                    src={currentConv?.member?.profilePicture}
+                    src={BASE_URL + "/" + currentConv?.member?.profilePicture}
                     alt={currentConv?.member?.username}
                     className="object-cover object-center w-full h-full"
                   />

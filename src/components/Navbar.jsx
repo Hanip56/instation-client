@@ -19,6 +19,7 @@ import { useState } from "react";
 import useOutsideAlerter from "../utils/ClickOutside";
 import { logout } from "../features/auth/authSlice";
 import axios from "axios";
+import { BASE_URL } from "../constants";
 
 const Navbar = () => {
   const [showBoxList, setShowBoxList] = useState(false);
@@ -89,7 +90,7 @@ const Navbar = () => {
                     >
                       <div className="w-10 h-10 rounded-full overflow-hidden">
                         <img
-                          src={user?.profilePicture}
+                          src={BASE_URL + "/" + user?.profilePicture}
                           alt={user?.username}
                           className="object-cover object-center w-full h-full"
                         />
@@ -150,7 +151,7 @@ const Navbar = () => {
               >
                 <div className="w-8 h-8 overflow-hidden rounded-full">
                   <img
-                    src={user?.profilePicture}
+                    src={BASE_URL + "/" + user?.profilePicture}
                     alt={user?.username}
                     className="object-cover w-full h-full object-center"
                   />

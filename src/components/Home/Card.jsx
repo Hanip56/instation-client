@@ -80,6 +80,8 @@ const Card = ({ post }) => {
 
   useOutsideAlerter(emojiBoxRef, setShowEmojiBox);
 
+  console.log(BASE_URL + "/" + post?.image);
+
   return (
     <div className="w-[90%] sm:w-[32rem] mx-auto rounded-md border border-gray-300 bg-white">
       <header className="w-full h-14 flex justify-between items-center px-2">

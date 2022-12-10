@@ -1,6 +1,7 @@
 import React from "react";
 import { IoHeartSharp, IoChatbubbleSharp } from "react-icons/io5";
 import { useDispatch } from "react-redux";
+import { BASE_URL } from "../../constants";
 import { showModalPostList } from "../../features/postList/postListSlice";
 
 const ImageCard = ({ post }) => {
@@ -27,7 +28,11 @@ const ImageCard = ({ post }) => {
             </span>
           </div>
         </div>
-        <img src={post?.image} alt="" className="object-cover w-full h-full" />
+        <img
+          src={BASE_URL + "/" + post?.image}
+          alt=""
+          className="object-cover w-full h-full"
+        />
       </div>
     </>
   );

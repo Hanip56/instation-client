@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { BASE_URL } from "../../constants";
 import {
   deletePost,
   hideModalOptions,
@@ -89,7 +90,7 @@ const ModalOptions = () => {
               <div className="basis-[60%] bg-black">
                 <div className="w-full h-full">
                   <img
-                    src={currentPost?.image}
+                    src={BASE_URL + "/" + currentPost?.image}
                     alt={currentPost?.caption}
                     className="w-full h-full object-contain object-center"
                   />
@@ -99,7 +100,9 @@ const ModalOptions = () => {
                 <div className="flex gap-x-3 items-center">
                   <div className="w-8 h-8 rounded-full overflow-hidden">
                     <img
-                      src={currentPost?.postedBy?.profilePicture}
+                      src={
+                        BASE_URL + "/" + currentPost?.postedBy?.profilePicture
+                      }
                       alt={currentPost?.postedBy?.username}
                     />
                   </div>
