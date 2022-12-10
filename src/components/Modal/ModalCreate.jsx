@@ -3,6 +3,7 @@ import { useEffect } from "react";
 import { useRef } from "react";
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { BASE_URL } from "../../constants";
 import { createPost } from "../../features/auth/userSlice";
 import { hideModalCP, resetCP } from "../../features/post/postSlice";
 import Spinner from "../UI/Spinner";
@@ -92,7 +93,11 @@ const ModalCreate = () => {
                 <div className="flex gap-x-2 items-center">
                   <div className="w-10 h-10 overflow-hidden rounded-full">
                     <img
-                      src={user?.profilePicture}
+                      src={
+                        process.env === "production"
+                          ? BASE_URL + "/" + user?.profilePicture
+                          : user?.profilePicture
+                      }
                       alt={user?.username}
                       className="object-contain w-full h-full"
                     />

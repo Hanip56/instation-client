@@ -1,5 +1,6 @@
 import React from "react";
 import { useSelector } from "react-redux";
+import { BASE_URL } from "../../constants";
 
 const MessageCard = ({ message, userConv }) => {
   const { user } = useSelector((state) => state.user);
@@ -11,7 +12,11 @@ const MessageCard = ({ message, userConv }) => {
       {!isOwn && (
         <div className="w-6 h-6 rounded-full mr-2">
           <img
-            src={userConv?.member?.profilePicture}
+            src={
+              process.env === "production"
+                ? BASE_URL + "/" + userConv?.member?.profilePicture
+                : userConv?.member?.profilePicture
+            }
             alt={userConv?.member?.username}
             className="object-cover object-center w-full h-full"
           />

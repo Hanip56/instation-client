@@ -14,6 +14,7 @@ import {
 import { useState } from "react";
 import SkeletonPost from "../components/Layouts/SkeletonPost";
 import SkeletonProfile from "../components/Layouts/SkeletonProfile";
+import { BASE_URL } from "../constants";
 
 const Home = () => {
   const dispatch = useDispatch();
@@ -101,7 +102,11 @@ const Home = () => {
                 <div className="flex items-center gap-x-4">
                   <div className="w-16 h-16 rounded-full overflow-hidden border border-gray-200">
                     <img
-                      src={user?.profilePicture}
+                      src={
+                        process.env === "production"
+                          ? BASE_URL + "/" + user?.profilePicture
+                          : user?.profilePicture
+                      }
                       alt={user?.username}
                       className="w-full h-full object-cover object-center"
                     />

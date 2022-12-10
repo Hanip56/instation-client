@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { BASE_URL } from "../../constants";
 import ToggleFollowUnfollow from "../UI/ToggleFollowUnfollow";
 
 const FollowingCard = ({ following }) => {
@@ -9,7 +10,11 @@ const FollowingCard = ({ following }) => {
         <Link to={`/${following?.username}`}>
           <div className="w-10 h-10 rounded-full overflow-hidden">
             <img
-              src={following.profilePicture}
+              src={
+                process.env === "production"
+                  ? BASE_URL + "/" + following.profilePicture
+                  : following.profilePicture
+              }
               alt={following.username}
               className="w-full h-full object-cover object-center "
             />

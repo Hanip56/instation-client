@@ -1,6 +1,7 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link, useParams } from "react-router-dom";
+import { BASE_URL } from "../../constants";
 import { followUser, removeFollower } from "../../features/auth/userSlice";
 
 const FollowerCard = ({ follower, setShowModal }) => {
@@ -35,7 +36,11 @@ const FollowerCard = ({ follower, setShowModal }) => {
         <Link to={`/${follower?.username}`}>
           <div className="w-10 h-10 rounded-full overflow-hidden">
             <img
-              src={follower.profilePicture}
+              src={
+                process.env === "production"
+                  ? BASE_URL + "/" + follower.profilePicture
+                  : follower.profilePicture
+              }
               alt={follower.username}
               className="w-full h-full object-cover object-center "
             />

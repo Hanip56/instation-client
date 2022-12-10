@@ -7,6 +7,7 @@ import ImageCard from "../components/ProfilePages/ImageCard";
 import MessageBtn from "../components/ProfilePages/MessageBtn";
 import ModalTiny from "../components/UI/ModalTiny";
 import ToggleFollowUnfollow from "../components/UI/ToggleFollowUnfollow";
+import { BASE_URL } from "../constants";
 import { getPersonalAccount, resetUser } from "../features/auth/userSlice";
 import {
   resetPostList,
@@ -79,7 +80,11 @@ const ProfilePages = () => {
         <div className="flex gap-x-2 mb-6 md:mb-12">
           <div className="w-24 h-24 md:w-44 md:h-44 overflow-hidden rounded-full border border-gray-200 mx-2 md:mx-12">
             <img
-              src={user?.profilePicture}
+              src={
+                process.env === "production"
+                  ? BASE_URL + "/" + user?.profilePicture
+                  : user?.profilePicture
+              }
               alt={user?.username}
               className="object-cover w-full h-full object-center"
             />

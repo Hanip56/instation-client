@@ -6,6 +6,7 @@ import { toast } from "react-toastify";
 import ModalEditPhoto from "../components/EditProfile/ModalEditPhoto";
 import Footer from "../components/Footer";
 import LdsSpinner from "../components/UI/LdsSpinner";
+import { BASE_URL } from "../constants";
 import {
   getPersonalAccount,
   resetUser,
@@ -81,7 +82,11 @@ const EditProfile = () => {
             <div className="flex gap-x-6 items-center md:ml-24">
               <div className="w-8 h-8 overflow-hidden rounded-full">
                 <img
-                  src={user?.profilePicture}
+                  src={
+                    process.env === "production"
+                      ? BASE_URL + "/" + user?.profilePicture
+                      : user?.profilePicture
+                  }
                   alt={user?.username}
                   className="object-cover w-full h-full object-center"
                 />

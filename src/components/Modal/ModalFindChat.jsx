@@ -1,5 +1,6 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { BASE_URL } from "../../constants";
 import {
   addConversation,
   getConversation,
@@ -68,7 +69,11 @@ const ModalFindChat = ({ setShowModal }) => {
                   >
                     <div className="w-16 h-16 rounded-full overflow-hidden">
                       <img
-                        src={following.profilePicture}
+                        src={
+                          process.env === "production"
+                            ? BASE_URL + "/" + following.profilePicture
+                            : following.profilePicture
+                        }
                         alt={following.username}
                         className="w-full h-full object-cover object-center "
                       />
