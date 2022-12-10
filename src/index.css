@@ -1,0 +1,40 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-[#fafafa];
+  }
+}
+
+@layer components {
+  .actionBtn {
+    @apply px-3 py-1 border border-gray-300 font-semibold text-sm outline-none active:bg-gray-500/10;
+  }
+  .listBtn {
+    @apply text-sm text-blue-400 font-semibold;
+  }
+  .input {
+    @apply w-full bg-[#fafafa] p-2 border border-gray-300 placeholder:text-sm hover:border-gray-400 outline-none rounded-sm;
+  }
+  .contentContainer {
+    @apply border border-gray-300 rounded-sm bg-white;
+  }
+  .error {
+    @apply text-sm text-red-500;
+  }
+  .boxList {
+    @apply flex items-center gap-x-2 p-3 w-full hover:bg-[#fafafa];
+  }
+  .formControl {
+    @apply w-full flex flex-col md:flex-row gap-x-6;
+  }
+  .formControl label {
+    @apply font-semibold w-32 md:text-right;
+  }
+  .formControl input,
+  .formControl textarea {
+    @apply border w-full md:w-80 border-gray-500/50 rounded-sm indent-2 placeholder:text-sm outline-none;
+  }
+}
