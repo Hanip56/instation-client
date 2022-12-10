@@ -23,6 +23,7 @@ import { get_time_diff } from "../../utils/getTimeDiff";
 import data from "@emoji-mart/data";
 import Picker from "@emoji-mart/react";
 import useOutsideAlerter from "../../utils/ClickOutside";
+import { BASE_URL } from "../../constants";
 
 const Card = ({ post }) => {
   const dispatch = useDispatch();
@@ -86,7 +87,7 @@ const Card = ({ post }) => {
           <div className="flex items-center gap-x-2">
             <div className="w-10 h-10 rounded-full overflow-hidden">
               <img
-                src={post?.postedBy?.profilePicture}
+                src={BASE_URL + "/" + post?.postedBy?.profilePicture}
                 alt={post?.postedBy?.username}
                 className="object-cover w-full h-full"
               />
@@ -107,7 +108,7 @@ const Card = ({ post }) => {
       <main>
         <div className="w-full max-h-[30rem] overflow-hidden">
           <img
-            src={post?.image}
+            src={BASE_URL + "/" + post?.image}
             alt="post img"
             className="object-contain w-full h-full object-center"
           />

@@ -1,6 +1,7 @@
 import axios from "axios";
+import { BASE_URL } from "../../constants";
 
-const API_URL = "/api/post/";
+const API_URL = BASE_URL + "/api/post/";
 
 const getPostsFollowing = async (token) => {
   const config = {
