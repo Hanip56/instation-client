@@ -16,7 +16,6 @@ import {
   setCurrentConv,
 } from "../features/chatting/chattingSlice";
 import ModalFindChat from "../components/Modal/ModalFindChat";
-import { BASE_URL } from "../constants";
 
 const ChatPages = () => {
   const dispatch = useDispatch();
@@ -35,7 +34,8 @@ const ChatPages = () => {
   console.log({ socket });
 
   useEffect(() => {
-    const SOCKET_ENDPOINT = BASE_URL;
+    const SOCKET_ENDPOINT =
+      "https://instation-server-production.up.railway.app";
 
     setSocket(io(SOCKET_ENDPOINT));
 
